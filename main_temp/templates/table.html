@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="table-responsive" >
+        <table class="table table-bordered">
+            <tr><th style="position: sticky; background-color: white; left: 0"></th>
+                {% for i in marks_ %}
+                <td>{{i.date}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th style="position: sticky; background-color: white; left: 0"></th>
+                {% for i in marks_ %}
+                <td>{{i.type}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th style="position: sticky; background-color: white; left: 0">{{ current_user.fullname.split()[0] }}</th>
+                {% for i in marks_ %}
+                <td>{{i.mark}}</td>
+                {% endfor %}
+            </tr>
+
+        </table>
+    </div>
+{% endblock content %}
+
+

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST">
+        {{ form.students }}
+        <input type="submit" name="submit_button" value="Load Student">
+    </form>
+    <form method="POST">
+        {% if adding_form %}
+        {{ adding_form.csrf_token }}
+        <div>
+            {{ adding_form.date.label(class="form-control-label") }}
+            {{ adding_form.date}}
+        </div>
+        <div>
+            {{ adding_form.type.label(class="form-control-label") }}
+            {{ adding_form.type}}
+        </div>
+        {% endif %}
+        <input type="submit" name="submit_button" value="Add new date">
+    </form>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr><th style="position: sticky; background-color: white; left: 0"></th>
+                {% for i in marks_ %}
+                <td>{{i.date}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th style="position: sticky; background-color: white; left: 0"></th>
+                {% for i in marks_ %}
+                <td>{{i.type}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th style="position: sticky; background-color: white; left: 0">{{ student_name.split()[0] }}</th>
+                {% for i in marks_ %}
+                <td>{{i.mark}}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+{% endblock content %}
+
+
